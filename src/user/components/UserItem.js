@@ -1,12 +1,14 @@
 import React from 'react';
+import Avatar from './src/shared/components/UIElements/Avatar';
 import './UserItem.css';
+
 
 function UserItem(props) {
   return (
     <li className="user-item">
       <div className="user-item__content">
         <div className="user-item__image">
-          <img src={props.image} alt={props.name} />
+          <Avatar />
         </div>
         <div className="user-item__info">
           <h2>{props.name}</h2>
