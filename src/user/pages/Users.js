@@ -10,7 +10,7 @@ function Users() {
     {
       id: 'u1',
       name: 'Vita',
-      image: "https://cdn.britannica.com/37/75637-050-B425E8F1/Killer-whale.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Pictograms-nps-water-fish_ladder-2.svg/512px-Pictograms-nps-water-fish_ladder-2.svg.png",
       places: 3
     }
   ];
