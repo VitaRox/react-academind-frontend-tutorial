@@ -5,7 +5,7 @@ import MainHeader from './MainHeader';
 import { Link } from 'react-router-dom';
 import NavLinks from './NavLinks';
 import SideDrawer from './SideDrawer';
-import Backdrop from '../components/UIElements/Backdrop';
+import Backdrop from '../UIElements/Backdrop.js';
 
 function MainNavigation(props) {
 
