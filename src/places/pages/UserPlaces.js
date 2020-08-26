@@ -13,7 +13,7 @@ const DUMMY_PLACES = [
     address: '20 W 34th St, New York, NY 10001',
     location: {
       lat: 40.7484405,
-      lon: -73.9878531
+      lng: -73.9878531
     },
     creator: 'u1'
   },
@@ -25,7 +25,7 @@ const DUMMY_PLACES = [
     address: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - United Arab Emirates',
     location: {
       lat: 25.197197,
-      lon: 55.2721877
+      lng: 55.2721877
     },
     creator: 'u2'
   }
