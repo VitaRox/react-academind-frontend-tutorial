@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# sensitive
+/public/index.html
+
 # testing
 /coverage
 
