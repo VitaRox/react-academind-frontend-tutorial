@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 
-import './Input.css';
+// import './Input.css';
 
 // Helper function:
 const inputReducer = (state, action) => {
