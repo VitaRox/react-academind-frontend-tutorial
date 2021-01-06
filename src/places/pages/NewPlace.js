@@ -1,10 +1,10 @@
 import React, { useCallback, useReducer } from 'react';
 
 import Input from '../../shared/components/FormElements/Input.js';
-import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/components/util/validator';
+import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/components/util/validators';
 import Button from '../../shared/components/FormElements/Button';
 
-import './NewPlace.css';
+import './PlaceForm.css';
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -45,6 +45,10 @@ function NewPlace() {
         value: '',
         isValid: false
       },
+      address: {
+        value: '',
+        isValid: false,
+      }
     },
     isValid: false  // validity of form as a whole
   });
@@ -63,7 +67,7 @@ function NewPlace() {
 
   const placeSubmitHandler = event => {
     event.preventDefault();
-    console.log(formState.inputs);
+    console.log(formState.inputs);  // Send to backend this data
   };
 
   return (

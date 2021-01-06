@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { validate } from '../../components/util/validator';
+import { validate } from '../util/validators';
 import './Input.css';
 
 // Helper function:
@@ -27,9 +27,9 @@ const inputReducer = (state, action) => {
 const Input = props => {
 
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: '',
+    value: props.value || '',
     isTouched: false,
-    isValid: false
+    isValid: props.valid || false,
   });
 
   // Object destructuring: we can extract these from their parent objects
