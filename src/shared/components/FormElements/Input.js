@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { validate } from '../util/validators';
+import { validate } from '../../util/validators';
 import './Input.css';
 
 // Helper function:
@@ -63,7 +63,7 @@ const Input = props => {
         placeholder={props.placeholder}
         onChange={changeHandler}
         onBlur={touchHandler}
-        value={inputState.value}
+        value={inputState.value} // instance of 2-way binding in React
       />
     ) : (
       <textarea

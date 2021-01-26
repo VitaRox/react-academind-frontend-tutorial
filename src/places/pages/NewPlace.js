@@ -1,42 +1,16 @@
-import React, { useCallback, useReducer } from 'react';
+import React from 'react';
 
 import Input from '../../shared/components/FormElements/Input.js';
-import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/components/util/validators';
+import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/util/validators';
 import Button from '../../shared/components/FormElements/Button';
+import { useForm } from '../../shared/hooks/form-hook';
 
 import './PlaceForm.css';
 
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case 'INPUT_CHANGE':
-      let formIsValid = true;
-      for (const inputId in state.inputs) {
-        if (inputId === action.inputId) {
-          formIsValid = formIsValid && action.isValid;
-        } else {
-          formIsValid = formIsValid && state.inputs[inputId].isValid;
-        }
-      }
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          // Dynamic assignment: action.inputId will eval to "title", "description", etc.
-          // Will only update state of that particular field (input).
-          [action.inputId]: { value: action.value, isValid: action.isValid }
-        },
-        isValid: formIsValid
-      };
-      default:
-        return state;
-  }
- };
+const NewPlace = () => {
 
-function NewPlace() {
-
-  // Set initial state
-  const [formState, dispatch] = useReducer(formReducer, {
-    inputs: {
+  // Initialize form state;
+  const [formState, inputHandler] = useForm({
       title: {
         value: '',
         isValid: false // These set validity of individual input values
@@ -50,21 +24,10 @@ function NewPlace() {
         isValid: false,
       }
     },
-    isValid: false  // validity of form as a whole
-  });
+    false
+  );
 
-  const inputHandler = useCallback((id, value, isValid) => {
-    dispatch({
-      type: 'INPUT_CHANGE',
-      value: value,
-      isValid: isValid,
-      inputId: id
-    });
-  }, []);
-           /* Leave dependency array empty: prevents infinite loop
-              (0 dependencies which it should monitor for changes to rerender)
-            */
-
+  // This sends our form data to backend
   const placeSubmitHandler = event => {
     event.preventDefault();
     console.log(formState.inputs);  // Send to backend this data
@@ -103,6 +66,6 @@ function NewPlace() {
       </Button>
     </form>
   );
-}
+};
 
 export default NewPlace;
