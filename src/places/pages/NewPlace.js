@@ -24,7 +24,7 @@ const NewPlace = () => {
         isValid: false,
       }
     },
-    false
+    false  // Sets the validity of the entire form based on validity of its elements
   );
 
   // This sends our form data to backend
